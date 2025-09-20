@@ -1,0 +1,20 @@
+:root {
+  --rojo-cayena: #D11A2A;
+  --rosa-fucsia: #E75480;
+  --rosa-pastel: #F4A6B1;
+  --amarillo-brillante: #FFD300;
+  --amarillo-dorado: #EFBF04;
+  --blanco-puro: #FFFFFF;
+  --naranja-intenso: #FF6F1D;
+  --naranja-melon: #FFA552;
+  --morado-purpura: #7E2F8E;
+  --rojo-ojito: #8B0000;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
