@@ -102,8 +102,9 @@ a:hover { color: var(--amarillo-dorado); }
 
 /* SECTION / ARTICLES */
 section {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
   gap: 20px;
   padding: 20px;
 }
@@ -125,7 +126,6 @@ article {
 article img {
   object-fit: cover;
   width: 100%;
-  border-radius: 15px;
   transition: transform 0.4s ease;
 }
 
@@ -144,6 +144,10 @@ footer {
   color: var(--blanco-puro);
   padding: 50px 20px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
 }
 
 footer a:hover {
@@ -172,10 +176,18 @@ footer a:hover {
 }
 
 [data-anim="slide-right"] {
-  transform: translateX(-50px);
+  transform: translateX(-100px);
 }
 
 [data-anim="slide-right"].visible {
+  transform: translateX(0);
+}
+
+[data-anim="slide-left"] {
+  transform: translateX(100px);
+}
+
+[data-anim="slide-left"].visible {
   transform: translateX(0);
 }
 
