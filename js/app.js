@@ -1,21 +1,30 @@
-function revealElements() {
-    const reveals = document.querySelectorAll('.reveal');
+document.addEventListener("DOMContentLoaded", () => {
+    let nav = document.querySelector("header nav");
+    let menuBtn = document.createElement("button");
 
-    for (let i = 0; i < reveals.length; i++) {
-        const windowHeight = window.innerHeight;
-        const elementTop = reveals[i].getBoundingClientRect().top;
-        const elementVisible = 100; // margen para iniciar la animación antes de que aparezca por completo
+    menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    menuBtn.classList.add("menu-toggle");
 
-        if (elementTop < windowHeight - elementVisible) {
-            reveals[i].classList.add('active');
+    document.querySelector("header").insertBefore(menuBtn, nav);
+
+    menuBtn.addEventListener("click", () => {
+        nav.classList.toggle("active");
+        menuBtn.classList.toggle("open");
+
+        if (menuBtn.classList.contains("open")) {
+            menuBtn.innerHTML = '<i class="fas fa-times"></i>';
         } else {
-            reveals[i].classList.remove('active');
+            menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
         }
-    }
-}
+    });
 
-// Ejecutar al hacer scroll
-window.addEventListener('scroll', revealElements);
-
-// Llamar al cargar la página (por si algunos elementos ya están en pantalla)
-revealElements();
+    // Sticky header
+    window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        if(window.scrollY > 50){
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    });
+});
